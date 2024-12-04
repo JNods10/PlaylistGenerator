@@ -1,0 +1,19 @@
+.custom-submit-btn {
+    background-color: #28a745; /* Custom green */
+    border-color: #28a745;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase; /* Capitalize text */
+    border-radius: 8px; /* Rounded corners */
+    padding: 12px; /* Larger padding */
+  }
+  
+  .custom-submit-btn:hover {
+    background-color: #218838; /* Darker green on hover */
+    border-color: #1e7e34;
+  }
+  
+  .custom-submit-btn:focus {
+    box-shadow: none; /* Remove default focus shadow */
+    outline: 2px solid #1e7e34; /* Custom focus outline */
+  }
