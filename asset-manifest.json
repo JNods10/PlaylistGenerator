@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/PlaylistGenerator/static/css/main.67c324be.css",
-    "main.js": "/PlaylistGenerator/static/js/main.87f62260.js",
-    "static/js/453.8ab44547.chunk.js": "/PlaylistGenerator/static/js/453.8ab44547.chunk.js",
-    "index.html": "/PlaylistGenerator/index.html",
-    "main.67c324be.css.map": "/PlaylistGenerator/static/css/main.67c324be.css.map",
-    "main.87f62260.js.map": "/PlaylistGenerator/static/js/main.87f62260.js.map",
-    "453.8ab44547.chunk.js.map": "/PlaylistGenerator/static/js/453.8ab44547.chunk.js.map"
+    "main.css": "/JNods10/PlaylistGenerator/static/css/main.67c324be.css",
+    "main.js": "/JNods10/PlaylistGenerator/static/js/main.273ad53f.js",
+    "static/js/453.8ab44547.chunk.js": "/JNods10/PlaylistGenerator/static/js/453.8ab44547.chunk.js",
+    "index.html": "/JNods10/PlaylistGenerator/index.html",
+    "main.67c324be.css.map": "/JNods10/PlaylistGenerator/static/css/main.67c324be.css.map",
+    "main.273ad53f.js.map": "/JNods10/PlaylistGenerator/static/js/main.273ad53f.js.map",
+    "453.8ab44547.chunk.js.map": "/JNods10/PlaylistGenerator/static/js/453.8ab44547.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.67c324be.css",
-    "static/js/main.87f62260.js"
+    "static/js/main.273ad53f.js"
   ]
 }
