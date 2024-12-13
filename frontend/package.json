@@ -39,7 +39,7 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "https://github.com/JNods10/PlaylistGenerator/",
+  "homepage": "https://JNods10.github.io/PlaylistGenerator/",
   "devDependencies": {
     "gh-pages": "^6.2.0"
   }

@@ -1,9 +1,10 @@
 import styles from "./Navbar.module.css";
 import { useState } from "react";
-import { Link } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 
 export const Navbar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
+
   return (
      <nav className={styles.navbar}>
         <div className={styles.menu}>
