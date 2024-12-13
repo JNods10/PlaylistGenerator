@@ -3,7 +3,6 @@ import MusicDetailsForm from "./MusicDetailsForm/MusicDetailsForm";
 import styles from "./MusicDetails.module.css";
 import { useSpotifyAuth } from "../../spotifyAuth";
 
-const clientID = "f46bb173a8274fd892cab3a6ce5c99ed";
 
 export const MusicDetails = () => {
   const { loginWithSpotifyClick, logoutClick, isTokenValid, getUserData, currentToken, getToken, saveToken } = useSpotifyAuth();

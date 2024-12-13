@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 
 const clientID = "f46bb173a8274fd892cab3a6ce5c99ed";
-const redirectURL = "http://localhost:3000/musicDetails";
+const redirectURL = "https://jnods10.github.io/PlaylistGenerator/#/musicDetails";
 const authorizationEndpoint = "https://accounts.spotify.com/authorize";
 const tokenEndpoint = "https://accounts.spotify.com/api/token";
 const scope = 'user-read-private user-read-email';
