@@ -2,6 +2,7 @@ import React from 'react'
 import styles from './Home.module.css';
 import { useNavigate } from "react-router-dom";
 
+
 export const Home = () => {
   const navigate = useNavigate();
   return (
@@ -16,7 +17,7 @@ export const Home = () => {
 
         <div className={styles.cardContainer}>
             <div className = {styles.card} onClick={() => navigate("/musicDetails")}>
-              <img src="assets/hero/musicClef.jpg" alt="cardImage" />
+              <img src={process.env.PUBLIC_URL + "/assets/hero/musicClef.jpg"} alt="cardImage" />
               <h2 className = {styles.cardTitle}>Personalized Playlists</h2>
               <ul className = {styles.cardDescription}> 
                 <li>Create playlists tailored to your preferences.</li>
@@ -25,7 +26,7 @@ export const Home = () => {
             </div>
 
             <div className = {styles.card} onClick={() => navigate("/musicDetails")}>
-              <img src="assets/hero/aiCartoon.jpg" alt="cardImage"/>
+              <img src={process.env.PUBLIC_URL +"/assets/hero/aiCartoon.jpg"} alt="cardImage"/>
               <h2 className = {styles.cardTitle}>AI Integration</h2>
               <ul className = {styles.cardDescription}> 
                 <li>AI technology to recommend songs and 
@@ -38,7 +39,7 @@ export const Home = () => {
             </div>
 
             <div className = {styles.card} onClick={() => navigate("/musicDetails")}>
-              <img src="assets/hero/handShake.jpg" alt="cardImage"/>
+              <img src={process.env.PUBLIC_URL + "/assets/hero/handShake.jpg"} alt="cardImage"/>
               <h2 className = {styles.cardTitle}>Share and Download</h2>
               <ul className = {styles.cardDescription} > 
                 <li>Share playlists with friends and family.
@@ -55,13 +56,13 @@ export const Home = () => {
         <div id="carouselExample" className={`carousel slide ${styles['custom-carousel']}`}>
   <div className="carousel-inner">
     <div className="carousel-item active">
-      <img src="assets/hero/handShake.jpg" alt="..." />
+      <img src={process.env.PUBLIC_URL + "/assets/hero/handShake.jpg"}  alt="..." />
     </div>
     <div className="carousel-item">
-      <img src="assets/hero/handShake.jpg" alt="..." />
+      <img src={process.env.PUBLIC_URL + "/assets/hero/handShake.jpg"}  alt="..." />
     </div>
     <div className="carousel-item">
-      <img src="assets/hero/handShake.jpg" alt="..." />
+      <img src={process.env.PUBLIC_URL +  "/assets/hero/handShake.jpg"}  alt="..." />
     </div>
   </div>
   <button

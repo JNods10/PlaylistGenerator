@@ -1,6 +1,6 @@
 .custom-submit-btn {
-    background-color: #28a745; /* Custom green */
-    border-color: #28a745;
+    background-color: #28a745 !important; /* Custom green */
+    border-color: #28a745 !important;
     font-size: 18px;
     font-weight: bold;
     text-transform: uppercase; /* Capitalize text */
@@ -9,8 +9,8 @@
   }
   
   .custom-submit-btn:hover {
-    background-color: #218838; /* Darker green on hover */
-    border-color: #1e7e34;
+    background-color: darkgreen !important; /* Darker green on hover */
+    border-color: darkgreen !important;
   }
   
   .custom-submit-btn:focus {

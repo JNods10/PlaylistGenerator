@@ -1,9 +1,102 @@
 .container {
     text-align: center;
-    padding: 10px;
     background-color: whitesmoke;
     width: 100%;
     min-height: 100vh;  
     color: black;
     box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.spotifyLogo 
+{
+    width: 150px;
+    height: auto;
+    padding-bottom: 20px;
+}
+
+/* General container styles */
+.userInfoContainer {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+  border: 2px solid #1db954; /* Spotify green */
+  border-radius: 10px;
+  background-color: #121212; /* Spotify black */
+  color: #ffffff; /* Text color */
+  font-family: Arial, sans-serif;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Loading message styles */
+.loadingMessage,
+.errorMessage {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 20px 0;
+  color: #f05454; /* Error red for errors */
+}
+
+/* User details styles */
+.userDetails h2 {
+  color: #1db954; /* Spotify green */
+  margin-bottom: 20px;
+}
+
+.userDetails .userData {
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+/* Button styles */
+.logout-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: transparent;
+  border: 2px solid #1db954; /* Spotify green */
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.logout-button:hover {
+  background-color: #1db954;
+  color: #000000;
+}
+
+/* Container for the button row */
+.userAPICalls .buttonRow {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Ensures buttons are spaced evenly */
+  gap: 20px; /* Adds space between buttons */
+  align-items: flex-start; /* Aligns buttons and content to the top */
+}
+
+/* Each button and its corresponding content */
+.userAPICalls .buttonContent {
+  display: flex;
+  flex-direction: column; /* Stacks the button and content vertically */
+  align-items: center; /* Centers content below each button */
+}
+
+/* The artist list */
+.userAPICalls .artistList {
+  margin-top: 10px; /* Adds spacing between the button and the list */
+  list-style-type: none; /* Removes bullet points from the list */
+  padding: 0;
+  text-align: left; /* Aligns list items to the left */
+}
+
+.userAPICalls .artistItem {
+  margin-bottom: 5px; /* Adds spacing between list items */
+  font-size: 14px; /* Makes the text smaller and more readable */
 }

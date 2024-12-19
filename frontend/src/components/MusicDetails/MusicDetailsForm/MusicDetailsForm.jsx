@@ -94,7 +94,7 @@ export const MusicDetailsForm = () => {
 
       {/* Display results (for testing purposes) */}
 
-      {results && (
+      {/* {results && (
       <div>
       <h3>Songs</h3>
       <ul>
@@ -105,7 +105,7 @@ export const MusicDetailsForm = () => {
         ))}
       </ul>
       </div>
-    )}
+    )} */}
 
     </div>
 

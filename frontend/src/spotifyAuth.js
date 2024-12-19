@@ -1,10 +1,10 @@
 import { useNavigate } from 'react-router-dom';
 
 const clientID = "f46bb173a8274fd892cab3a6ce5c99ed";
-const redirectURL = "https://jnods10.github.io/PlaylistGenerator/#/musicDetails";
+const redirectURL = "http://localhost:3000/musicDetails";
 const authorizationEndpoint = "https://accounts.spotify.com/authorize";
 const tokenEndpoint = "https://accounts.spotify.com/api/token";
-const scope = 'user-read-private user-read-email';
+const scope = 'user-read-private user-read-email user-top-read user-follow-read playlist-read-private';
 
 export const useSpotifyAuth = () => {
   const navigate = useNavigate();
@@ -140,6 +140,39 @@ export const useSpotifyAuth = () => {
     return await response.json();
   };
 
+  // get the artists that the user follows
+  const getFollowArtists = async () =>
+  {
+    const response = await fetch("https://api.spotify.com/v1/me/following?type=artist", {
+      method: 'GET',
+      headers: { 'Authorization': 'Bearer ' + currentToken.access_token },
+    });
+    return await response.json();
+  }
+
+ 
+ // get the users top 3 tracks
+
+ const getTopTracks = async () => 
+  {
+  const response = await fetch("https://api.spotify.com/v1/me/top/tracks?limit=3", {
+    method: 'GET',
+    headers: { 'Authorization': 'Bearer ' + currentToken.access_token },
+  });
+  return await response.json();
+ }
+
+ // get the users playlists
+ const getPlaylists = async () => 
+  {
+    const response = await fetch("https://api.spotify.com/v1/me/playlists", {
+      method: 'GET',
+      headers: { 'Authorization': 'Bearer ' + currentToken.access_token },
+    });
+    return await response.json();
+
+ }
+
   // Click handlers
   const loginWithSpotifyClick = async () => {
     await redirectToSpotifyAuthorize();
@@ -174,5 +207,8 @@ export const useSpotifyAuth = () => {
     saveToken,
     isTokenValid,
     currentToken,
+    getFollowArtists,
+    getTopTracks,
+    getPlaylists
   };
 };

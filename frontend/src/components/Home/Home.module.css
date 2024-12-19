@@ -1,15 +1,14 @@
 html, body {
     height: 100%;
+    width: 100%;
     padding: 0;
     margin: 0;
     overflow-x: hidden;
-
 }
-
 
 .container {
     text-align: center;
-    padding: 10px;
+    padding: 0px;
     width: 100%;
     min-height: 100vh;  
     color: black;
@@ -82,10 +81,14 @@ html, body {
     justify-content: center;
     align-items: center;
     height: 100vh; /* Full height of the viewport */
+    background-color: palegoldenrod;
+    width: 100vw;
+    position: relative;
+    left: 0;
   }
   
   .custom-carousel {
-    background-color: blanchedalmond;
+    background-color: white;
     box-shadow: 0 2px 50px silver;
     cursor: pointer;
     height: 75%; /* Or any specific height you want */
