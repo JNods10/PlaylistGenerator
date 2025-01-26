@@ -1,0 +1,121 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+.container {
+    text-align: center;
+    padding: 0px;
+    width: 100%;
+    min-height: 100vh;  
+    color: black;
+    background-color: whitesmoke;
+    box-sizing: border-box;
+}
+
+.title {
+    font-size: 50px;
+}
+
+.tagline {
+    font-size: 24px;
+    font-weight: 400;
+    color: #555;
+    margin-top: 10px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cardContainer{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 2rem;
+    justify-content: center;
+    justify-items: center;
+    margin-bottom: 100px;
+
+}
+
+.card {
+    overflow: hidden;
+    box-shadow: 0 2px 20px lightgrey;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    height: 550px;
+    width: 450px;
+
+    &:hover{
+        background-color: lightyellow;
+    }
+}
+
+.card img {
+    height: 400px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.cardTitle {
+
+    padding: 1px;
+
+}
+
+.cardDescription {
+    list-style: disc;
+    list-style-position: outside; /* Bullets outside the text */
+    margin: 0; /* Removes extra margins */
+    text-align: left;
+}
+
+
+.customCarouselContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full height of the viewport */
+    background-color: palegoldenrod;
+    width: 100vw;
+    position: relative;
+    left: 0;
+  }
+  
+  .custom-carousel {
+    background-color: white;
+    box-shadow: 0 2px 50px silver;
+    cursor: pointer;
+    height: 75%; /* Or any specific height you want */
+    width: 75%; /* Or any specific width you want */
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .carousel-item img {
+    height: 400px;
+    width: 400px;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon
+{
+    background-color: black; /* Semi-transparent background */
+    border-radius: 50%; /* Make buttons circular */
+    padding: 10px; /* Increase padding to make buttons larger */
+    width: 50px; /* Custom button width */
+    height: 50px; /* Custom button height */
+
+    &:hover{
+        background-color: black;
+    }
+}

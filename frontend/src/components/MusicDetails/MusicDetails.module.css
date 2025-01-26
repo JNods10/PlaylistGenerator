@@ -1,0 +1,193 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+
+* > * {
+  font-family: "Poppins", cursive;
+  margin: 0;
+}
+
+.container {
+    text-align: center;
+    background-color: whitesmoke;
+    width: 100%;
+    min-height: 100vh;  
+    color: black;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.spotifyLogo 
+{
+    width: 150px;
+    height: auto;
+    padding-bottom: 20px;
+}
+
+/* General container styles */
+.userInfoContainer {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+  border: 2px solid #1db954; /* Spotify green */
+  border-radius: 10px;
+  background-color: #121212; /* Spotify black */
+  color: #ffffff; /* Text color */
+  font-family: Arial, sans-serif;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Loading message styles */
+.loadingMessage,
+.errorMessage {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 20px 0;
+  color: #f05454; /* Error red for errors */
+}
+
+/* User details styles */
+.userDetails h2 {
+  color: #1db954; /* Spotify green */
+  margin-bottom: 20px;
+}
+
+.userDetails .userData {
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+/* Button styles */
+.logout-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: transparent;
+  border: 2px solid #1db954; /* Spotify green */
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.logout-button:hover {
+  background-color: #1db954;
+  color: #000000;
+}
+
+
+
+/* Container for the button row */
+.userAPICalls .userMetadata {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.revealUserDataButton {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  font-size: 60px;
+  font-weight: bold;
+  color: green;
+  height: 100px;
+  width: 75vw;
+  background-color: #1db954; /* Spotify green */
+  border: 2px solid #1db954; /* Spotify green */
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.revealUserDataButton:hover {
+  background-color: white; /* Darker green for hover */
+  color: #1db954;
+}
+
+.userAPICalls h1 {
+  font-family: 'Arial', sans-serif; /* Uses a clean, modern font */
+  font-size: 60px; /* Makes the text larger */
+  font-weight: bold; /* Makes the text bold */
+  text-transform: uppercase; /* Makes all letters uppercase */
+  letter-spacing: 3px; /* Adds spacing between letters for a blocky feel */
+  color: #1b7e26; /* A strong color, can adjust to your design */
+  margin-bottom: 40px; /* Remove any default margins */
+  padding: 0; /* Remove padding */
+  text-align: left; /* Centers the text */
+}
+
+/* Each button and its corresponding content */
+.userAPICalls .userMetadataContent {
+  display: flex;
+  flex-direction: column; /* Stacks the button and content vertically */
+  align-items: flex-start; /* Centers content below each button */
+  justify-content: flex-start;
+  margin: 10px;
+  padding: 30px;
+}
+
+/* The list container */
+.userAPICalls .rankingList {
+  padding: 0;
+  list-style-type: decimal; 
+  display: flex; 
+  flex-direction:  column; 
+  width: 75vw;
+  gap: 40px; /* Adds spacing between items */
+  margin-bottom: 20px;
+  counter-reset: item; /* Reset the counter for each list */
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto; /* Ensures it's centered with button */
+  transition: opacity 2.0s ease-in-out; /* Fade in effect */
+}
+/* Each list item */
+.userAPICalls .rankingItem {
+  display: flex; /* Aligns the name and image horizontally */
+  align-items: center; /* Centers items vertically */
+  justify-content: center; /* Aligns items from left to right */
+  position: relative; /* Set relative position for the container */
+  font-family: 'Times New Roman', Times, serif;
+  color: white;
+  font-size: 50px;
+  text-align: center; /* Aligns text to the left */
+  width: 70vw; /* Adjusts the width of the list item */
+  height: 200px; /* Ensures the height is greater than the image */
+  cursor: pointer;
+  border-radius: 10px;
+  background-color: black;
+  margin-left: auto;
+  margin-right: auto; /* Centers the item horizontally */
+  padding-right: 100px;
+}
+
+
+.userAPICalls .rankingItem:hover {
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); /* More prominent shadow */
+  background-color: rgb(77, 73, 73);
+}
+
+/* Image inside each list item */
+.userAPICalls .rankingItem img {
+  flex-shrink: 0; /* Prevents the image from resizing */
+  padding: 10px;
+  position: absolute;
+  right: 100px; /* Adjust the horizontal position */
+  
+}
+/* Add the numbers back as pseudo-elements */
+
+
+/* .userAPICalls .rankingItem::before {
+  content: counter(item) ". "; 
+  counter-increment: item; 
+  font-weight: bold;
+  left: 0;
+} */

@@ -1,0 +1,9 @@
+.container {
+    text-align: center;
+    padding: 10px;
+    background-color: whitesmoke;
+    width: 100%;
+    min-height: 100vh;  
+    color: black;
+    box-sizing: border-box;
+}
