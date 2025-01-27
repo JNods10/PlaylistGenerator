@@ -1,6 +1,6 @@
 from flask import Flask
 from flask_cors import CORS
-from routes.musicDetailsRoute import playlistBP
+from backend.routes.musicDetailsRoute import playlistBP
 import os
 
 app = Flask(__name__)
