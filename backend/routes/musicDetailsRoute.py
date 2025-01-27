@@ -1,5 +1,5 @@
 from flask import Blueprint, request, jsonify
-from models.analyzer import generate_playlist
+from backend.models.analyzer import generate_playlist
 
 
 playlistBP = Blueprint("playlist", __name__)
