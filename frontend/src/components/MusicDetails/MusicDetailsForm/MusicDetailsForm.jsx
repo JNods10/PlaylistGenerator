@@ -134,7 +134,7 @@ export const MusicDetailsForm = () => {
 
     try {
       const response = await fetch(
-        'http://127.0.0.1:5000/api/generate_playlist_route',
+        'https://playlistgeneratorbackend.onrender.com/api/generate_playlist_route',
         {
           method: 'POST',
           headers: {
