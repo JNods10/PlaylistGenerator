@@ -52,7 +52,7 @@
 
 .menuItems a:hover {
     text-decoration: underline;
-    color: #1db954; /* Spotify green */
+    color: blue; /* Spotify green */
 }
 
 @media screen and (max-width: 830px) {

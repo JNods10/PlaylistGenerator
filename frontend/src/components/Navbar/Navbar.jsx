@@ -28,9 +28,9 @@ export const Navbar = () => {
             <li>
             <Link to="/musicDetails">Generate Playlist</Link> {/* Using Link to navigate */}
           </li>
-              <li>
-                <Link to="/about">About</Link> {/* Using Link to navigate */}
-              </li>
+              {/* <li>
+                <Link to="/about">About</Link> 
+              </li> */}
 
             </ul>
 
