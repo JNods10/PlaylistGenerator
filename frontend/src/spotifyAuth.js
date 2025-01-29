@@ -2,7 +2,8 @@ import { useNavigate } from 'react-router-dom';
 
 const clientID = "f46bb173a8274fd892cab3a6ce5c99ed";
 const redirectURL = "https://jnods10.github.io/PlaylistGenerator/#/musicDetails";
-// const redirectURL = "http://localhost:3000/musicDetails"; // dev redirect URL
+//https://jnods10.github.io/PlaylistGenerator/#/musicDetails
+// const redirectURL = "http://localhost:3000/PlaylistGenerator#/musicDetails"; // dev redirect URL
 const authorizationEndpoint = "https://accounts.spotify.com/authorize";
 const tokenEndpoint = "https://accounts.spotify.com/api/token";
 const scope = 'user-read-private user-read-email user-top-read user-follow-read playlist-read-private playlist-modify-public playlist-modify-private';
@@ -181,7 +182,6 @@ export const useSpotifyAuth = () => {
 
   const logoutClick = () => {
     sessionStorage.clear();
-    navigate(redirectURL); // Navigate to the specified URL after logout
   };
 
   const refreshTokenClick = async () => {

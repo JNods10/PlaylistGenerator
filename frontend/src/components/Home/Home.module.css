@@ -51,7 +51,7 @@ html, body {
     width: 450px;
 
     &:hover{
-        background-color: lightyellow;
+        background-color: #1db954; /* Spotify green */;
     }
 }
 
@@ -81,7 +81,7 @@ html, body {
     justify-content: center;
     align-items: center;
     height: 100vh; /* Full height of the viewport */
-    background-color: palegoldenrod;
+    background-color: #1db954; /* Spotify green */
     width: 100vw;
     position: relative;
     left: 0;

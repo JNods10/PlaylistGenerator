@@ -4,6 +4,7 @@ import styles from "./MusicDetails.module.css";
 import { useSpotifyAuth } from "../../spotifyAuth";
 
 
+
 export const MusicDetails = () => {
   const { loginWithSpotifyClick, logoutClick, isTokenValid, getUserData, getFollowArtists, getTopTracks, getPlaylists, currentToken, getToken, saveToken } = useSpotifyAuth();
   const [userData, setUserData] = useState(null);
@@ -12,6 +13,8 @@ export const MusicDetails = () => {
   const [followArtists, setFollowArtists] = useState(0); // Users top Spotify items
   const [topTracks, setTopTracks] = useState(0); // Users top tracks
   const [playlists, setPlaylists] = useState(0); // Users playlists 
+
+
 
   // Handle redirect from Spotify (exchange code for token)
   useEffect(() => {
@@ -60,6 +63,12 @@ export const MusicDetails = () => {
       fetchData();
     }
   }, [currentToken, userData, isTokenValid, getUserData, getFollowArtists, getTopTracks, getPlaylists]); // Dependencies to monitor
+
+   // Handle logout
+   const handleLogout = () => {
+    logoutClick();
+    setUserData(false); // Set loggedOut to true after logout
+  };
   
   return (
     <div className={styles.container}>
@@ -71,7 +80,7 @@ export const MusicDetails = () => {
              className={styles.spotifyLogo} src={process.env.PUBLIC_URL + "/assets/musicDetailsPage/Spotify_Primary_Logo_RGB_Green.png"}
              alt="Spotify Logo"
            />
-           <button type="button" class="btn btn-outline-success" onClick={loginWithSpotifyClick}>Connect Spotify</button>
+           <button type="button" className="btn btn-outline-success" onClick={loginWithSpotifyClick}>Connect Spotify</button>
          </>
       ) : (
         <div className={styles.userInfoContainer}>
@@ -91,7 +100,7 @@ export const MusicDetails = () => {
             <button
               type="button"
               className="btn btn-outline-success logout-button"
-              onClick={logoutClick}
+              onClick={handleLogout}
             >
               Logout
             </button>
