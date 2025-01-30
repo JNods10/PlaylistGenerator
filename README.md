@@ -28,6 +28,6 @@ The *Spotify Custom Playlist Generator* is a web application that allows users t
 
 - :key: **Authentication:** OAuth 2.0
 
-## Future Enhancements ...
+## Future Enhancements
 - Expand user access beyond current limitations (limited by the development mode of Spotify).
 - Improve AI-generated recommendations based on user preferences, history, and favorite artists/music.
