@@ -16,9 +16,9 @@ The *Spotify Custom Playlist Generator* is a web application that allows users t
 
 ## Tech Stack
 
-- **Frontend:** React.js
+- :art: **Frontend:** React.js
 
-- **Backend:** Flask
+- :desktop_computer: **Backend:** Flask
 
 - **APIs Used:**
 
