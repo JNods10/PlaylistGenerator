@@ -1,31 +1,5 @@
-Spotify Custom Playlist Generator
+# Spotify Custom Playlist Generator
 
-Overview
+**Overview**
 
-The Spotify Custom Playlist Generator is a web application that allows users to connect their Spotify account and generate a custom playlist based on a selected genre, occasion, and desired length. This provides a quick and efficient way to create playlists tailored to specific moods or events.
-
-Features
-
-OAuth Integration: Securely connect with a Spotify account.
-
-Custom Playlist Generation: Create playlists based on user-selected criteria (genre, occasion, length).
-
-AI-Powered Recommendations: Uses ChatGPT API to refine song selections.
-
-Seamless User Experience: Web-based application with an intuitive UI built using React.
-
-Tech Stack
-
-Frontend: React.js
-
-Backend: Flask
-
-APIs Used:
-
-Spotify Web API (for authentication and playlist creation)
-
-ChatGPT API (for intelligent music recommendations)
-
-Authentication: OAuth 2.0
-
-Installation & Setup
+The *Spotify Custom Playlist Generator* is a web application that allows users to connect their Spotify account and generate a custom playlist based on a selected genre, occasion, and desired length. This provides a quick and efficient way to create playlists tailored to specific moods or events.
