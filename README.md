@@ -20,10 +20,10 @@ The *Spotify Custom Playlist Generator* is a web application that allows users t
 
 - :desktop_computer: **Backend:** Flask
 
-- **APIs Used:**
+- :paperclip: **APIs Used:**
 
-  - **Spotify Web API (for authentication and playlist creation)**
+  - :green_circle: **Spotify Web API (for authentication and playlist creation)**
 
-  - **ChatGPT API (for intelligent music recommendations)**
+  - :robot: **ChatGPT API (for intelligent music recommendations)**
 
-- **Authentication:** OAuth 2.0
+- :key: **Authentication:** OAuth 2.0
