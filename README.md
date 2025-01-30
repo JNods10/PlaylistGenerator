@@ -1,4 +1,4 @@
-# Spotify Custom Playlist Generator
+# Spotify Custom Playlist Generator :musical_note:
 
 **Overview**
 
