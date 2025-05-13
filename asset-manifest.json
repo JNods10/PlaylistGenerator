@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/PlaylistGenerator/static/css/main.6665f56c.css",
-    "main.js": "/PlaylistGenerator/static/js/main.51e6fdb2.js",
+    "main.css": "/PlaylistGenerator/static/css/main.5609502c.css",
+    "main.js": "/PlaylistGenerator/static/js/main.8320242a.js",
     "static/js/845.116b9008.chunk.js": "/PlaylistGenerator/static/js/845.116b9008.chunk.js",
     "index.html": "/PlaylistGenerator/index.html",
-    "main.6665f56c.css.map": "/PlaylistGenerator/static/css/main.6665f56c.css.map",
-    "main.51e6fdb2.js.map": "/PlaylistGenerator/static/js/main.51e6fdb2.js.map",
+    "main.5609502c.css.map": "/PlaylistGenerator/static/css/main.5609502c.css.map",
+    "main.8320242a.js.map": "/PlaylistGenerator/static/js/main.8320242a.js.map",
     "845.116b9008.chunk.js.map": "/PlaylistGenerator/static/js/845.116b9008.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.6665f56c.css",
-    "static/js/main.51e6fdb2.js"
+    "static/css/main.5609502c.css",
+    "static/js/main.8320242a.js"
   ]
 }
