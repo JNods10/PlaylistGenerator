@@ -23,6 +23,21 @@ export const MusicDetails = () => {
   const [topTracks, setTopTracks] = useState(0)
   const [playlists, setPlaylists] = useState(0)
 
+  // Add state for tracking expanded sections
+  const [expandedSections, setExpandedSections] = useState({
+    artists: false,
+    tracks: false,
+    playlists: false,
+  })
+
+  // Toggle function for sections
+  const toggleSection = section => {
+    setExpandedSections(prev => ({
+      ...prev,
+      [section]: !prev[section],
+    }))
+  }
+
   // Handle redirect from Spotify (exchange code for token)
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search)
@@ -148,93 +163,126 @@ export const MusicDetails = () => {
 
             {/* Artists Section */}
             <div className={styles.metadataSection}>
-              <div className={styles.sectionHeader}>
-                <h2>Artists You Follow</h2>
+              <div
+                className={styles.sectionHeader}
+                onClick={() => toggleSection('artists')}
+                style={{ cursor: 'pointer' }}
+              >
+                <h2>
+                  Artists You Follow
+                  <span className={styles.expandIcon}>
+                    {expandedSections.artists ? '▼' : '▶'}
+                  </span>
+                </h2>
                 <p className={styles.sectionSubtitle}>
                   Your favorite artists and bands
                 </p>
               </div>
-              <div className={styles.contentGrid}>
-                {followArtists?.artists?.items?.map((artist, index) => (
-                  <div key={index} className={styles.artistCard}>
-                    <div className={styles.artistImage}>
-                      {artist.images[0] && (
-                        <img
-                          src={artist.images[0].url}
-                          alt={artist.name}
-                          className={styles.artistImg}
-                        />
-                      )}
+              {expandedSections.artists && (
+                <div className={styles.contentGrid}>
+                  {followArtists?.artists?.items?.map((artist, index) => (
+                    <div key={index} className={styles.artistCard}>
+                      <div className={styles.artistImage}>
+                        {artist.images[0] && (
+                          <img
+                            src={artist.images[0].url}
+                            alt={artist.name}
+                            className={styles.artistImg}
+                          />
+                        )}
+                      </div>
+                      <div className={styles.artistInfo}>
+                        <h3>{artist.name}</h3>
+                        <p className={styles.artistType}>{artist.type}</p>
+                      </div>
                     </div>
-                    <div className={styles.artistInfo}>
-                      <h3>{artist.name}</h3>
-                      <p className={styles.artistType}>{artist.type}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
+                  ))}
+                </div>
+              )}
             </div>
 
             {/* Top Tracks Section */}
             <div className={styles.metadataSection}>
-              <div className={styles.sectionHeader}>
-                <h2>Your Top Tracks</h2>
+              <div
+                className={styles.sectionHeader}
+                onClick={() => toggleSection('tracks')}
+                style={{ cursor: 'pointer' }}
+              >
+                <h2>
+                  Your Top Tracks
+                  <span className={styles.expandIcon}>
+                    {expandedSections.tracks ? '▼' : '▶'}
+                  </span>
+                </h2>
                 <p className={styles.sectionSubtitle}>Your most played songs</p>
               </div>
-              <div className={styles.contentGrid}>
-                {topTracks?.items?.map((track, index) => (
-                  <div key={index} className={styles.trackCard}>
-                    <div className={styles.trackImage}>
-                      {track.album.images[0] && (
-                        <img
-                          src={track.album.images[0].url}
-                          alt={track.name}
-                          className={styles.trackImg}
-                        />
-                      )}
+              {expandedSections.tracks && (
+                <div className={styles.contentGrid}>
+                  {topTracks?.items?.map((track, index) => (
+                    <div key={index} className={styles.trackCard}>
+                      <div className={styles.trackImage}>
+                        {track.album.images[0] && (
+                          <img
+                            src={track.album.images[0].url}
+                            alt={track.name}
+                            className={styles.trackImg}
+                          />
+                        )}
+                      </div>
+                      <div className={styles.trackInfo}>
+                        <h3>{track.name}</h3>
+                        <p className={styles.trackArtist}>
+                          {track.artists[0].name}
+                        </p>
+                        <p className={styles.trackAlbum}>{track.album.name}</p>
+                      </div>
                     </div>
-                    <div className={styles.trackInfo}>
-                      <h3>{track.name}</h3>
-                      <p className={styles.trackArtist}>
-                        {track.artists[0].name}
-                      </p>
-                      <p className={styles.trackAlbum}>{track.album.name}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
+                  ))}
+                </div>
+              )}
             </div>
 
             {/* Playlists Section */}
             <div className={styles.metadataSection}>
-              <div className={styles.sectionHeader}>
-                <h2>Your Playlists</h2>
+              <div
+                className={styles.sectionHeader}
+                onClick={() => toggleSection('playlists')}
+                style={{ cursor: 'pointer' }}
+              >
+                <h2>
+                  Your Playlists
+                  <span className={styles.expandIcon}>
+                    {expandedSections.playlists ? '▼' : '▶'}
+                  </span>
+                </h2>
                 <p className={styles.sectionSubtitle}>Your custom playlists</p>
               </div>
-              <div className={styles.contentGrid}>
-                {playlists?.items?.map((playlist, index) => (
-                  <div key={index} className={styles.playlistCard}>
-                    <div className={styles.playlistImage}>
-                      {playlist.images[0] && (
-                        <img
-                          src={playlist.images[0].url}
-                          alt={playlist.name}
-                          className={styles.playlistImg}
-                        />
-                      )}
+              {expandedSections.playlists && (
+                <div className={styles.contentGrid}>
+                  {playlists?.items?.map((playlist, index) => (
+                    <div key={index} className={styles.playlistCard}>
+                      <div className={styles.playlistImage}>
+                        {playlist.images[0] && (
+                          <img
+                            src={playlist.images[0].url}
+                            alt={playlist.name}
+                            className={styles.playlistImg}
+                          />
+                        )}
+                      </div>
+                      <div className={styles.playlistInfo}>
+                        <h3>{playlist.name}</h3>
+                        <p className={styles.playlistTracks}>
+                          {playlist.tracks.total} tracks
+                        </p>
+                        <p className={styles.playlistOwner}>
+                          By {playlist.owner.display_name}
+                        </p>
+                      </div>
                     </div>
-                    <div className={styles.playlistInfo}>
-                      <h3>{playlist.name}</h3>
-                      <p className={styles.playlistTracks}>
-                        {playlist.tracks.total} tracks
-                      </p>
-                      <p className={styles.playlistOwner}>
-                        By {playlist.owner.display_name}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
+                  ))}
+                </div>
+              )}
             </div>
           </div>
         )}

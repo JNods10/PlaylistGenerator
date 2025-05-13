@@ -338,11 +338,12 @@ export const MusicDetailsForm = () => {
           ) : (
             Object.keys(results).length > 0 && (
               <div>
-                <h3>Songs to add to playlist</h3>
+                <h3 className='text-center mb-4'>Songs to add to playlist</h3>
                 <ul className={styles.playlistContainer}>
                   {Object.entries(results).map(([song, artist], index) => (
                     <li className={styles.playlistItem} key={index}>
-                      <strong>{song}</strong> by {artist}
+                      <strong>{song}</strong>
+                      <span>by {artist}</span>
                       <button
                         className={styles.glightbox_video}
                         onClick={() => handlePlayButtonClick(song, artist)}
@@ -357,7 +358,7 @@ export const MusicDetailsForm = () => {
                           <path
                             className={styles.inner_circle}
                             d='M65 21C40.1488 21 20 41.1488 20 66C20 90.8512 40.1488 111 65 111C89.8512 111 110 90.8512 110 66C110 41.1488 89.8512 21 65 21Z'
-                            fill='green'
+                            fill='#1db954'
                           ></path>
                           <circle
                             className={styles.outer_circle}
@@ -378,17 +379,15 @@ export const MusicDetailsForm = () => {
                     </li>
                   ))}
                 </ul>
-                <button
-                  type='button'
-                  className={styles.createPlaylistButton}
-                  onClick={handleCreatePlaylist}
-                >
-                  Create Playlist
-                </button>
-
-                {/* <div>
-              <WebPlayback/>
-            </div> */}
+                <div className='text-center mt-4'>
+                  <button
+                    type='button'
+                    className={styles.createPlaylistButton}
+                    onClick={handleCreatePlaylist}
+                  >
+                    Create Playlist
+                  </button>
+                </div>
               </div>
             )
           )}

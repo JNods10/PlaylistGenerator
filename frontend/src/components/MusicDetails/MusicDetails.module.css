@@ -190,7 +190,7 @@
 
 .userMetadata {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1200px; /* Increased from 1200px */
   margin: 0 auto;
   padding: 2rem;
 }
@@ -210,17 +210,35 @@
   padding: 2rem;
   backdrop-filter: blur(10px);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  width: 100%; /* Ensure full width */
 }
 
 .sectionHeader {
   margin-bottom: 2rem;
   text-align: left;
+  padding: 1rem;
+  background: rgba(29, 185, 84, 0.1);
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.sectionHeader:hover {
+  background: rgba(29, 185, 84, 0.2);
 }
 
 .sectionHeader h2 {
   font-size: 1.8rem;
   color: #1db954;
   margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.expandIcon {
+  font-size: 1.2rem;
+  margin-left: 1rem;
+  transition: transform 0.3s ease;
 }
 
 .sectionSubtitle {
@@ -230,31 +248,53 @@
 
 .contentGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(3, 1fr); /* Changed to exactly 3 columns */
+  gap: 2rem; /* Increased gap for better spacing */
   padding: 1rem 0;
+  animation: fadeIn 0.3s ease-in-out;
+  width: 100%; /* Ensure full width */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Artist Card Styles */
 .artistCard {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.95); /* Lighter background */
   border-radius: 15px;
   overflow: hidden;
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
+  transition: all 0.3s ease;
   cursor: pointer;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(29, 185, 84, 0.1);
 }
 
 .artistCard:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 25px rgba(29, 185, 84, 0.2);
+  border-color: rgba(29, 185, 84, 0.3);
 }
 
 .artistImage {
   position: relative;
   padding-top: 100%;
   overflow: hidden;
+  border-bottom: 3px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.artistCard:hover .artistImage {
+  border-bottom-color: #1db954;
 }
 
 .artistImg {
@@ -264,11 +304,13 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.3s ease;
+  transition: transform 0.5s ease;
+  filter: brightness(0.95);
 }
 
 .artistCard:hover .artistImg {
-  transform: scale(1.05);
+  transform: scale(1.08);
+  filter: brightness(1.05);
 }
 
 .artistInfo {
@@ -277,92 +319,198 @@
 }
 
 .artistInfo h3 {
-  color: #ffffff;
-  font-size: 1.1rem;
+  color: #1db954; /* Spotify green */
+  font-size: 1.3rem;
   margin-bottom: 0.5rem;
+  font-weight: 800; /* Extra bold for block letters */
+  text-transform: uppercase; /* Block letters */
+  letter-spacing: 1px; /* Spacing between letters */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  transition: all 0.3s ease;
+  position: relative;
+  padding: 0.5rem 0;
+}
+
+.artistInfo h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: #1db954;
+  transition: width 0.3s ease;
+}
+
+.artistCard:hover .artistInfo h3 {
+  transform: scale(1.05);
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+.artistCard:hover .artistInfo h3::after {
+  width: 80%;
 }
 
 .artistType {
-  color: #b3b3b3;
+  color: #666;
   font-size: 0.9rem;
   text-transform: capitalize;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease;
+}
+
+.artistCard:hover .artistType {
+  color: #1db954;
 }
 
 /* Track Card Styles */
 .trackCard {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.95);
   border-radius: 15px;
   overflow: hidden;
   display: flex;
-  align-items: center;
-  padding: 1rem;
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
+  flex-direction: column;
+  transition: all 0.3s ease;
   cursor: pointer;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(29, 185, 84, 0.1);
 }
 
 .trackCard:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 25px rgba(29, 185, 84, 0.2);
+  border-color: rgba(29, 185, 84, 0.3);
 }
 
 .trackImage {
-  width: 80px;
-  height: 80px;
-  border-radius: 10px;
+  position: relative;
+  padding-top: 100%;
   overflow: hidden;
-  flex-shrink: 0;
+  border-bottom: 3px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.trackCard:hover .trackImage {
+  border-bottom-color: #1db954;
 }
 
 .trackImg {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.5s ease;
+  filter: brightness(0.95);
+}
+
+.trackCard:hover .trackImg {
+  transform: scale(1.08);
+  filter: brightness(1.05);
 }
 
 .trackInfo {
-  margin-left: 1rem;
+  padding: 1.5rem;
+  text-align: center;
   flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .trackInfo h3 {
-  color: #ffffff;
-  font-size: 1rem;
-  margin-bottom: 0.3rem;
+  color: #1db954;
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  position: relative;
+  padding: 0.5rem 0;
+}
+
+.trackInfo h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: #1db954;
+  transition: width 0.3s ease;
+}
+
+.trackCard:hover .trackInfo h3 {
+  transform: scale(1.05);
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+.trackCard:hover .trackInfo h3::after {
+  width: 80%;
 }
 
 .trackArtist {
+  color: #666;
+  font-size: 1rem;
+  margin-bottom: 0.3rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease;
+}
+
+.trackCard:hover .trackArtist {
   color: #1db954;
-  font-size: 0.9rem;
-  margin-bottom: 0.2rem;
 }
 
 .trackAlbum {
-  color: #b3b3b3;
-  font-size: 0.8rem;
+  color: #666;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease;
+}
+
+.trackCard:hover .trackAlbum {
+  color: #1db954;
 }
 
 /* Playlist Card Styles */
 .playlistCard {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.95);
   border-radius: 15px;
   overflow: hidden;
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
+  transition: all 0.3s ease;
   cursor: pointer;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(29, 185, 84, 0.1);
 }
 
 .playlistCard:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 25px rgba(29, 185, 84, 0.2);
+  border-color: rgba(29, 185, 84, 0.3);
 }
 
 .playlistImage {
   position: relative;
   padding-top: 100%;
   overflow: hidden;
+  border-bottom: 3px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.playlistCard:hover .playlistImage {
+  border-bottom-color: #1db954;
 }
 
 .playlistImg {
@@ -372,33 +520,77 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.3s ease;
+  transition: transform 0.5s ease;
+  filter: brightness(0.95);
 }
 
 .playlistCard:hover .playlistImg {
-  transform: scale(1.05);
+  transform: scale(1.08);
+  filter: brightness(1.05);
 }
 
 .playlistInfo {
-  padding: 1rem;
+  padding: 1.5rem;
   text-align: center;
 }
 
 .playlistInfo h3 {
-  color: #ffffff;
-  font-size: 1.1rem;
+  color: #1db954;
+  font-size: 1.3rem;
   margin-bottom: 0.5rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  position: relative;
+  padding: 0.5rem 0;
+}
+
+.playlistInfo h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: #1db954;
+  transition: width 0.3s ease;
+}
+
+.playlistCard:hover .playlistInfo h3 {
+  transform: scale(1.05);
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+.playlistCard:hover .playlistInfo h3::after {
+  width: 80%;
 }
 
 .playlistTracks {
-  color: #1db954;
-  font-size: 0.9rem;
+  color: #666;
+  font-size: 1rem;
   margin-bottom: 0.3rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease;
+}
+
+.playlistCard:hover .playlistTracks {
+  color: #1db954;
 }
 
 .playlistOwner {
-  color: #b3b3b3;
-  font-size: 0.8rem;
+  color: #666;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease;
+}
+
+.playlistCard:hover .playlistOwner {
+  color: #1db954;
 }
 
 /* Animation for cards */
@@ -439,9 +631,15 @@
 }
 
 /* Responsive adjustments */
+@media (max-width: 1200px) {
+  .contentGrid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on medium screens */
+  }
+}
+
 @media (max-width: 768px) {
   .contentGrid {
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: 1fr; /* 1 column on small screens */
   }
 
   .sectionTitle {
