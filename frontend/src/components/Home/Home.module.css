@@ -1,121 +1,288 @@
-html, body {
-    height: 100%;
-    width: 100%;
-    padding: 0;
-    margin: 0;
-    overflow-x: hidden;
+html,
+body {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
 }
 
 .container {
-    text-align: center;
-    padding: 0px;
-    width: 100%;
-    min-height: 100vh;  
-    color: black;
-    background-color: whitesmoke;
-    box-sizing: border-box;
+  text-align: center;
+  padding: 0px;
+  width: 100%;
+  min-height: 100vh;
+  color: black;
+  background-color: whitesmoke;
+  box-sizing: border-box;
 }
 
 .title {
-    font-size: 50px;
+  font-size: 50px;
 }
 
 .tagline {
-    font-size: 24px;
-    font-weight: 400;
-    color: #555;
-    margin-top: 10px;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
+  font-size: 24px;
+  font-weight: 400;
+  color: #555;
+  margin-top: 10px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.cardContainer{
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    gap: 2rem;
-    justify-content: center;
-    justify-items: center;
-    margin-bottom: 100px;
-
+.cardContainer {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 2rem;
+  justify-content: center;
+  justify-items: center;
+  margin-bottom: 100px;
 }
 
 .card {
-    overflow: hidden;
-    box-shadow: 0 2px 20px lightgrey;
-    display: flex;
-    flex-direction: column;
-    cursor: pointer;
-    height: 550px;
-    width: 450px;
+  overflow: hidden;
+  box-shadow: 0 2px 20px lightgrey;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  height: 550px;
+  width: 450px;
 
-    &:hover{
-        background-color: #1db954; /* Spotify green */;
-    }
+  &:hover {
+    background-color: #1db954; /* Spotify green */
+  }
 }
 
 .card img {
-    height: 400px;
-    width: 100%;
-    object-fit: cover;
+  height: 400px;
+  width: 100%;
+  object-fit: cover;
 }
 
 .cardTitle {
-
-    padding: 1px;
-
+  padding: 1px;
 }
 
 .cardDescription {
-    list-style: disc;
-    list-style-position: outside; /* Bullets outside the text */
-    margin: 0; /* Removes extra margins */
-    text-align: left;
+  list-style: disc;
+  list-style-position: outside; /* Bullets outside the text */
+  margin: 0; /* Removes extra margins */
+  text-align: left;
 }
 
-
 .customCarouselContainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh; /* Full height of the viewport */
-    background-color: #1db954; /* Spotify green */
-    width: 100vw;
-    position: relative;
-    left: 0;
-  }
-  
-  .custom-carousel {
-    background-color: white;
-    box-shadow: 0 2px 50px silver;
-    cursor: pointer;
-    height: 75%; /* Or any specific height you want */
-    width: 75%; /* Or any specific width you want */
-    border-radius: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .carousel-item img {
-    height: 400px;
-    width: 400px;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full height of the viewport */
+  background-color: #1db954; /* Spotify green */
+  width: 100vw;
+  position: relative;
+  left: 0;
+}
+
+.custom-carousel {
+  background-color: white;
+  box-shadow: 0 2px 50px silver;
+  cursor: pointer;
+  height: 75%; /* Or any specific height you want */
+  width: 75%; /* Or any specific width you want */
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel-item img {
+  height: 400px;
+  width: 400px;
+  align-items: center;
+  justify-content: center;
 }
 
 .carousel-control-prev-icon,
-.carousel-control-next-icon
-{
-    background-color: black; /* Semi-transparent background */
-    border-radius: 50%; /* Make buttons circular */
-    padding: 10px; /* Increase padding to make buttons larger */
-    width: 50px; /* Custom button width */
-    height: 50px; /* Custom button height */
+.carousel-control-next-icon {
+  background-color: black; /* Semi-transparent background */
+  border-radius: 50%; /* Make buttons circular */
+  padding: 10px; /* Increase padding to make buttons larger */
+  width: 50px; /* Custom button width */
+  height: 50px; /* Custom button height */
 
-    &:hover{
-        background-color: black;
-    }
+  &:hover {
+    background-color: black;
+  }
+}
+
+.playlistsContainer {
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, #1db954 0%, #1ed760 100%);
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.playlistsContainer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+      circle at 20% 20%,
+      rgba(255, 255, 255, 0.1) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 80% 80%,
+      rgba(255, 255, 255, 0.1) 0%,
+      transparent 50%
+    ),
+    linear-gradient(
+      45deg,
+      rgba(29, 185, 84, 0.8) 0%,
+      rgba(30, 215, 96, 0.8) 100%
+    );
+  z-index: 1;
+}
+
+.playlistsContainer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  opacity: 0.5;
+  z-index: 2;
+}
+
+.playlistsGrid {
+  position: relative;
+  z-index: 3;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  width: 100%;
+  padding: 2rem;
+}
+
+.playlistCard {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  transform: translateY(0);
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.playlistCard:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.playlistContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.playlistImage {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.playlistImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.playlistCard:hover .playlistImage img {
+  transform: scale(1.05);
+}
+
+.playlistOverlay {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 0.5rem 1rem;
+  border-top-left-radius: 10px;
+}
+
+.playlistDuration {
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.playlistInfo {
+  padding: 1.5rem;
+}
+
+.playlistInfo h3 {
+  color: #1db954;
+  margin: 0 0 1rem 0;
+  font-size: 1.4rem;
+}
+
+.playlistTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.tag {
+  background: rgba(29, 185, 84, 0.1);
+  color: #1db954;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.playlistDescription {
+  color: #666;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Add staggered animation delay for cards */
+.playlistCard:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.playlistCard:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+.playlistCard:nth-child(3) {
+  animation-delay: 0.5s;
 }

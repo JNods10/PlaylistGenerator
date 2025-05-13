@@ -1,30 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
-
 * > * {
-  font-family: "Poppins", cursive;
+  font-family: 'Poppins', cursive;
   margin: 0;
 }
 
 .container {
-    text-align: center;
-    background-color: whitesmoke;
-    width: 100%;
-    min-height: 100vh;  
-    color: black;
-    box-sizing: border-box;
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    flex-direction: column;
-    
+  text-align: center;
+  background-color: whitesmoke;
+  width: 100%;
+  min-height: 100vh;
+  color: black;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
 }
 
-.spotifyLogo 
-{
-    width: 150px;
-    height: auto;
-    padding-bottom: 20px;
+.spotifyLogo {
+  width: 150px;
+  height: auto;
+  padding-bottom: 20px;
 }
 
 /* General container styles */
@@ -72,15 +69,15 @@
   border: 2px solid #1db954; /* Spotify green */
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
 
 .logout-button:hover {
   background-color: #1db954;
   color: #000000;
 }
-
-
 
 /* Container for the button row */
 .userAPICalls .userMetadata {
@@ -102,7 +99,9 @@
   border: 2px solid #1db954; /* Spotify green */
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  transition:
+    background-color 0.3s ease,
+    transform 0.2s ease;
 }
 
 .revealUserDataButton:hover {
@@ -135,9 +134,9 @@
 /* The list container */
 .userAPICalls .rankingList {
   padding: 0;
-  list-style-type: decimal; 
-  display: flex; 
-  flex-direction:  column; 
+  list-style-type: decimal;
+  display: flex;
+  flex-direction: column;
   width: 75vw;
   gap: 40px; /* Adds spacing between items */
   margin-bottom: 20px;
@@ -146,7 +145,7 @@
   justify-content: center;
   margin-left: auto;
   margin-right: auto; /* Ensures it's centered with button */
-  transition: opacity 2.0s ease-in-out; /* Fade in effect */
+  transition: opacity 2s ease-in-out; /* Fade in effect */
 }
 /* Each list item */
 .userAPICalls .rankingItem {
@@ -168,7 +167,6 @@
   padding-right: 100px;
 }
 
-
 .userAPICalls .rankingItem:hover {
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); /* More prominent shadow */
   background-color: rgb(77, 73, 73);
@@ -180,10 +178,8 @@
   padding: 10px;
   position: absolute;
   right: 100px; /* Adjust the horizontal position */
-  
 }
 /* Add the numbers back as pseudo-elements */
-
 
 /* .userAPICalls .rankingItem::before {
   content: counter(item) ". "; 
@@ -191,3 +187,278 @@
   font-weight: bold;
   left: 0;
 } */
+
+.userMetadata {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.sectionTitle {
+  font-size: 2.5rem;
+  color: #1db954;
+  margin-bottom: 2rem;
+  text-align: center;
+  font-weight: 700;
+}
+
+.metadataSection {
+  margin-bottom: 3rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  padding: 2rem;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.sectionHeader {
+  margin-bottom: 2rem;
+  text-align: left;
+}
+
+.sectionHeader h2 {
+  font-size: 1.8rem;
+  color: #1db954;
+  margin-bottom: 0.5rem;
+}
+
+.sectionSubtitle {
+  color: #b3b3b3;
+  font-size: 1rem;
+}
+
+.contentGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+  padding: 1rem 0;
+}
+
+/* Artist Card Styles */
+.artistCard {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  overflow: hidden;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.artistCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.artistImage {
+  position: relative;
+  padding-top: 100%;
+  overflow: hidden;
+}
+
+.artistImg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.artistCard:hover .artistImg {
+  transform: scale(1.05);
+}
+
+.artistInfo {
+  padding: 1rem;
+  text-align: center;
+}
+
+.artistInfo h3 {
+  color: #ffffff;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.artistType {
+  color: #b3b3b3;
+  font-size: 0.9rem;
+  text-transform: capitalize;
+}
+
+/* Track Card Styles */
+.trackCard {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.trackCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.trackImage {
+  width: 80px;
+  height: 80px;
+  border-radius: 10px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.trackImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.trackInfo {
+  margin-left: 1rem;
+  flex-grow: 1;
+}
+
+.trackInfo h3 {
+  color: #ffffff;
+  font-size: 1rem;
+  margin-bottom: 0.3rem;
+}
+
+.trackArtist {
+  color: #1db954;
+  font-size: 0.9rem;
+  margin-bottom: 0.2rem;
+}
+
+.trackAlbum {
+  color: #b3b3b3;
+  font-size: 0.8rem;
+}
+
+/* Playlist Card Styles */
+.playlistCard {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  overflow: hidden;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.playlistCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.playlistImage {
+  position: relative;
+  padding-top: 100%;
+  overflow: hidden;
+}
+
+.playlistImg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.playlistCard:hover .playlistImg {
+  transform: scale(1.05);
+}
+
+.playlistInfo {
+  padding: 1rem;
+  text-align: center;
+}
+
+.playlistInfo h3 {
+  color: #ffffff;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.playlistTracks {
+  color: #1db954;
+  font-size: 0.9rem;
+  margin-bottom: 0.3rem;
+}
+
+.playlistOwner {
+  color: #b3b3b3;
+  font-size: 0.8rem;
+}
+
+/* Animation for cards */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.artistCard,
+.trackCard,
+.playlistCard {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* Staggered animation delays */
+.artistCard:nth-child(1),
+.trackCard:nth-child(1),
+.playlistCard:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.artistCard:nth-child(2),
+.trackCard:nth-child(2),
+.playlistCard:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.artistCard:nth-child(3),
+.trackCard:nth-child(3),
+.playlistCard:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .contentGrid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+
+  .sectionTitle {
+    font-size: 2rem;
+  }
+
+  .sectionHeader h2 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contentGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .metadataSection {
+    padding: 1rem;
+  }
+}

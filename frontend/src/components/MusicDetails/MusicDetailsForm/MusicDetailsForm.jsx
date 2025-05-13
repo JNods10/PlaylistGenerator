@@ -5,6 +5,8 @@ import { useSpotifyAuth } from '../../../spotifyAuth'
 // import WebPlayback from './WebPlayback';
 
 export const MusicDetailsForm = () => {
+  console.log('MusicDetailsForm component rendered')
+
   const [genre, setGenre] = useState('')
   const [occasion, setOccasion] = useState('')
   const [length, setLength] = useState('')
@@ -22,8 +24,35 @@ export const MusicDetailsForm = () => {
 
   const delay = ms => new Promise(resolve => setTimeout(resolve, ms))
 
-  const handlePlayButtonClick = () => {
-    console.log('hello play button')
+  const handlePlayButtonClick = async (song, artist) => {
+    if (!isTokenValid()) {
+      console.error('Token is invalid or expired.')
+      return
+    }
+
+    const accessToken = currentToken.access_token
+    if (!accessToken) {
+      console.log('Access token is missing.')
+      return
+    }
+
+    try {
+      // First, search for the song to get its Spotify ID
+      const searchResults = await findSong(accessToken, artist, song)
+      if (searchResults.data.tracks.items.length > 0) {
+        const trackId = searchResults.data.tracks.items[0].id
+        // You can either:
+        // 1. Open the song in Spotify
+        window.open(`https://open.spotify.com/track/${trackId}`, '_blank')
+
+        // 2. Or use the Web Playback SDK to play the song
+        // This would require additional setup with the Spotify Web Playback SDK
+      } else {
+        console.log('Song not found on Spotify')
+      }
+    } catch (error) {
+      console.error('Error playing song:', error)
+    }
   }
 
   const handleCreatePlaylist = async () => {
@@ -44,19 +73,19 @@ export const MusicDetailsForm = () => {
 
       const response = await createPlaylist(accessToken, userID, playlistName)
       console.log(`Playlist ${response.name} created succesfully.`)
-      await delay(4000) 
+      await delay(4000)
       setPlaylistID(response.id)
 
-      const newPlaylistID = response.id;
-      console.log("Playlist ID: ",playlistID)
+      const newPlaylistID = response.id
+      console.log('Playlist ID: ', playlistID)
 
-      handleAddSongPlaylist(newPlaylistID);
+      handleAddSongPlaylist(newPlaylistID)
     } catch (error) {
       console.error('Error creating the playlist', error.message)
     }
   }
 
-  const handleAddSongPlaylist = async (newPlaylistID) => {
+  const handleAddSongPlaylist = async newPlaylistID => {
     if (!isTokenValid) {
       console.error('Token is invalid or expired.')
       return
@@ -71,18 +100,17 @@ export const MusicDetailsForm = () => {
     const failed = [] // Temp array for failed songs
 
     try {
-      console.log("Results: :",results)
+      console.log('Results: :', results)
       for (const [song, artist] of Object.entries(results)) {
         const searchResults = await findSong(accessToken, artist, song) // results of artist and song name
         console.log('Was the song found?: ', searchResults.status)
         const items = searchResults.data.tracks.items // all items returned from Spotify API search
         let songID = '' // Spotify ID of the song
-        
-        console.log("Items Length ", items.length);
-        
+
+        console.log('Items Length ', items.length)
+
         for (const item of items) {
           songID = item.id
-
 
           const response = await addSongToPlaylist(
             accessToken,
@@ -111,8 +139,7 @@ export const MusicDetailsForm = () => {
     } finally {
       setFailedSongs(failed) // Update the state with failed songs
     }
-    console.log("Failed Songs: ", failedSongs);
-  
+    console.log('Failed Songs: ', failedSongs)
   }
 
   useEffect(() => {
@@ -121,18 +148,42 @@ export const MusicDetailsForm = () => {
     }
   }, [loading])
 
+  useEffect(() => {
+    console.log('%c State Updated:', 'color: #1db954; font-weight: bold;', {
+      genre,
+      occasion,
+      length,
+      loading,
+      error,
+      results: results ? 'Has results' : 'No results',
+      playlistID,
+    })
+  }, [genre, occasion, length, loading, error, results, playlistID])
+
   const handleSubmit = async e => {
-    e.preventDefault() // Prevents the default browser behavior of refreshing the page when the form is submitted.
-
-    setLoading(true)
-    setFailedSongs([])
-    setResults(null)
-    setError(false)
-    setPlaylistID(null)
-    // Data to send to the Flask backend
-    const payload = { genre, occasion, length }
-
     try {
+      console.log('🔍 DEBUG: handleSubmit function called')
+      console.clear()
+      console.group('🎵 Playlist Generation Process')
+      console.log(
+        '%c Form Submission Started',
+        'color: #1db954; font-weight: bold;'
+      )
+
+      e.preventDefault()
+      setLoading(true)
+      setFailedSongs([])
+      setResults(null)
+      setError(false)
+      setPlaylistID(null)
+
+      const payload = { genre, occasion, length }
+      console.log(
+        '%c Payload being sent:',
+        'color: #1db954; font-weight: bold;',
+        payload
+      )
+
       const response = await fetch(
         'https://playlistgeneratorbackend.onrender.com/api/generate_playlist_route',
         {
@@ -144,17 +195,30 @@ export const MusicDetailsForm = () => {
         }
       )
 
+      console.log(
+        '%c Response received:',
+        'color: #1db954; font-weight: bold;',
+        response
+      )
+
       if (!response.ok) {
         setError(true)
         throw new Error('Failed to generate the playlist')
       }
 
       const data = await response.json()
-      setResults(data) // Update state when received from the backend
+      console.log(
+        '%c Data received from backend:',
+        'color: #1db954; font-weight: bold;',
+        data
+      )
+      setResults(data)
       setLoading(false)
+      console.groupEnd()
     } catch (error) {
-      console.error('Error:', error)
+      console.error('Error in handleSubmit:', error)
       setError(true)
+      console.groupEnd()
     }
   }
 
@@ -162,7 +226,10 @@ export const MusicDetailsForm = () => {
     <div className='container mt-5'>
       <h2 className='text-center mb-4'>Playlist Form</h2>
       <form
-        onSubmit={handleSubmit}
+        onSubmit={e => {
+          console.log('🔍 DEBUG: Form onSubmit event triggered')
+          handleSubmit(e)
+        }}
         className='p-4 border rounded shadow-sm bg-light'
       >
         {/* Playlist Name */}
@@ -193,7 +260,14 @@ export const MusicDetailsForm = () => {
             id='genre'
             name='genre'
             value={genre}
-            onChange={e => setGenre(e.target.value)}
+            onChange={e => {
+              console.log(
+                '%c Genre changed:',
+                'color: #1db954; font-weight: bold;',
+                e.target.value
+              )
+              setGenre(e.target.value)
+            }}
             placeholder='Enter your Genre (e.g., Rap, Rock, Jazz)'
             required
           />
@@ -237,6 +311,7 @@ export const MusicDetailsForm = () => {
         <button
           type='submit'
           className={`btn btn-primary ${styles['custom-submit-btn']} w-100`}
+          onClick={() => console.log('Submit button clicked')}
         >
           Design Your Playlist
         </button>
@@ -263,14 +338,14 @@ export const MusicDetailsForm = () => {
           ) : (
             Object.keys(results).length > 0 && (
               <div>
-                <h3>Songs</h3>
+                <h3>Songs to add to playlist</h3>
                 <ul className={styles.playlistContainer}>
                   {Object.entries(results).map(([song, artist], index) => (
                     <li className={styles.playlistItem} key={index}>
                       <strong>{song}</strong> by {artist}
                       <button
                         className={styles.glightbox_video}
-                        onClick={handlePlayButtonClick}
+                        onClick={() => handlePlayButtonClick(song, artist)}
                       >
                         <svg
                           width='50'
